@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css">
+		<style>
+			.box{
+				width: 800px;
+				height: 560px;
+				background: url(images/bg2.png) no-repeat;
+				margin: 0 auto;
+				padding-top: 140px;
+			}
+			.top{
+				width: 543px;
+				height: 300px;
+				background: #fff;
+				border-radius:10px;
+				margin: 0 auto;
+				margin-bottom: 12px;
+				overflow: hidden;
+				padding: 30px 0 0 27px;
+			}
+			#left{
+				width: 370px;
+				height: 240px;
+				border: 1px solid #abdde7;
+				background: #eef8fa;
+				float: left;
+				border-radius:5px;
+				margin-right: 17px;
+				line-height: 30px;
+				padding: 15px;
+				font-size: 14px;
+				color: #004654;
+			}
+			.top button{
+				width: 100px;
+				height: 80px;
+				border-radius:5px;
+				margin-bottom: 15px;
+				color: #fff;
+				padding-top: 50px;
+			}
+			#btn1{
+				background: #90e2f2 url(images/jiahao.png) no-repeat 35px 12px;
+			}
+			#btn2{
+				background: #a8a6f5 url(images/11.png) no-repeat 35px 12px;
+				display: none;
+			}
+			#btn3{
+				background: #9fe7a9 url(images/22.png) no-repeat 35px 12px;
+				display: none;
+			}
+			#btn4{
+				background: #90e2f2 url(images/33.png) no-repeat 35px 12px;
+				display: none;
+			}
+			#bottom{
+				width: 543px;
+				height: 135px;
+				background: #fff;
+				border-radius:10px;
+				margin: 0 auto;
+				position: relative;
+				padding-top: 25px;
+				padding-left: 27px;
+				display: none;
+			}
+			#hidden{
+				width: 14px;
+				height: 14px;
+				position: absolute;
+				right: 22px;
+				top: 19px;
+			}
+			#butt{
+				width: 100px;
+				height: 40px;
+				background:#a8a6f5 ;
+				color: #fff;
+				border-radius:5px ;
+				margin-right: 13px;
+				margin-bottom: 14px;
+			}
+			#butt1{
+				width: 100px;
+				height: 40px;
+				background:#9fe7a9 ;
+				color: #fff;
+				border-radius:5px ;
+			}
+			#tet{
+				width: 398px;
+				height: 48px;
+				background: #EEF8FA;
+				border: 1px solid #abdde7;
+				border-radius:5px ;
+				float: left;
+				text-indent: 1em;
+			}
+			#ton{
+				width: 100px;
+				height: 49px;
+				background:#a8a6f5 url(images/11.png) no-repeat 38px 10px;
+				margin-left: 8px;
+				text-indent: 1em;
+			}
+			#tet1{
+				width: 194px;
+				height: 48px;
+				background: #EEF8FA;
+				border: 1px solid #abdde7;
+				border-radius:5px ;
+				display: none;
+				float: left;
+				margin-right: 10px;
+				text-indent: 1em;
+			}
+			#tet2{
+				width: 194px;
+				height: 48px;
+				background: #EEF8FA;
+				border: 1px solid #abdde7;
+				border-radius:5px ;
+				display: none;
+				float: left;
+				text-indent: 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="top">
+				<div id="left">妙味课堂是一支独具特色的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一途中全新的快乐学习方法！目前主要针对的是javascript培训，同时还提供了css教程、javascript视频、js特效等，最新推出了外地学员们喜欢的javascript网络课程服务，同时还为处于javascript入门阶段的朋友录制了大量javascript视频，其中涉及了大量javascript基础知识，希望妙味课堂推出的javascript网络培训课程能带给大家更多惊喜。</div>
+				<p>
+					<button id="btn1">展开</button>
+					<button id="btn4">收起</button>
+				</p>
+				<button id="btn2">查找</button>
+				<button id="btn3">替换</button>
+			</div>
+			<div id="bottom">
+				<span id="hidden"><img src="images/44.png"></span>
+				<input type="button" value="查找"  id="butt"/>
+				<input type="button" value="替换" id="butt1"/>
+				<br />
+				<input type="text" value=""  id="tet"/>
+				<input type="text" value="输入要查找的内容"  id="tet1"/>
+				<input type="text" value="输入要替换的内容"  id="tet2"/>
+				<button id="ton"></button>
+			</div>
+		</div>
+		<script>
+			btn1.onclick = function(){
+				btn1.style.display = 'none'
+				btn4.style.display = 'block'
+				btn2.style.display = 'block'
+				btn3.style.display = 'block'
+				bottom.style.display = 'block'
+			}
+			btn4.onclick = function(){
+				btn1.style.display = 'block'
+				btn4.style.display = 'none'
+				btn2.style.display = 'none'
+				btn3.style.display = 'none'
+				bottom.style.display = 'none'
+			}
+			hidden.onclick = function(){
+				btn4.style.display = 'block'
+				bottom.style.display = 'none'
+			}
+			butt1.onclick = function(){
+				tet.style.display = 'none'
+				tet1.style.display = 'block'
+				tet2.style.display = 'block'
+				tet2.select()
+				ton.onclick = function(){
+					aaa()
+				}
+			}
+			butt.onclick = function(){
+				tet1.select()
+				ton.onclick = function(){
+				  abc()
+				}
+			}
+			btn2.onclick = function(){
+				tet.style.display = 'block'
+				tet1.style.display = 'none'
+				tet2.style.display = 'none'
+				ton.onclick = function(){
+				  abc()
+				}
+			}
+			btn3.onclick = function(){
+				tet.style.display = 'none'
+				tet1.style.display = 'block'
+				tet2.style.display = 'block'
+				ton.onclick = function(){
+					aaa()
+				}
+			}
+			function abc(){
+				if(!tet.value) return 
+				left.innerHTML = left.innerHTML.split('<span style="background:yellow;">').join("").split('</span>').join("");
+				left.innerHTML = left.innerHTML.split(tet.value).join('<span style="background:yellow;">'+tet.value+'</span>')
+			}
+			function aaa(){
+				if(!tet.value) return
+				left.innerHTML = left.innerHTML.split('<span style="background:yellow;">').join("").split('</span>').join("");
+				left.innerHTML = left.innerHTML.split(tet.value).join('<span style="background:yellow;">'+tet2.value+'</span>')
+			}
+			
+		</script>
+	</body>
+</html>
