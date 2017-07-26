@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css">
+		<style>
+			.box{
+				width: 1200px;
+				height: 575px;
+				background: url(images/bg1.png) no-repeat;
+				padding-top: 125px;
+			}
+			#wrap{
+				width: 850px;
+				height: 450px;
+				background: rgba(44,21,143,0.5);
+				border-radius:10px ;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#wenzi{
+				width:270px ;
+				height: 340px;
+				background: #fff;
+				border-radius:10px ;
+				float: left;
+				margin: 30px 0 0 28px;
+				padding: 25px;
+				line-height: 30px;
+				font-size: 14px;
+				color: #402196;
+			}
+			#wenzi2{
+				width:270px ;
+				height: 340px;
+				background: #fff;
+				border-radius:10px ;
+				float: left;
+				padding: 25px;
+				line-height: 30px;
+				font-size: 14px;
+				color: #402196;
+				margin-top: 30px ;
+				white-space: ;
+			}
+			#center{
+				width: 100px;
+				height: 100%;
+				font-size: 16px;
+				float: left;
+				text-align: center;
+				margin: 165px 20px 0 20px;
+			}
+			#btn{
+				width: 100px;
+				height: 80px;
+				background: #7ee4fd;
+				color: #fff;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			span{
+				color: #7ee4fd;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div id="wrap">
+				<textarea id="wenzi">妙味课堂是一支独具特色的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一途中全新的快乐学习方法！目前主要针对的是javascript培训，同时还提供了css教程、javascript视频、js特效等，最新推出了外地学员们喜欢的javascript网络课程服务，同时还为处于javascript入门阶段的朋友录制了大量javascript视频，其中涉及了大量javascript基础知识，希望妙味课堂推出的javascript网络培训课程能带给大家更多惊喜。</textarea>
+				<div id="center">
+					<button id="btn">→</br>把文字右移</button>
+					<span id="jishu">0/0</span>
+				</div>
+				<div id="wenzi2"></div>
+			</div>
+		</div>
+		<script src="utils.js"></script>
+		<script>
+			var btn = $('#btn')
+			var wenzi = $('#wenzi')
+			var wenzi2 = $('#wenzi2')
+			var jishu = $('#jishu')
+			//character   字的意思
+			var timer = null //点击之前先设为空的
+			
+			btn.onclick = function(){
+				if(btn.isClick) return;
+				wenzi.disabled = true
+				btn.isClick = true;
+				clearInterval(timer);
+				var n = 0;
+				wenzi2.innerHTML = ''
+				var len = wenzi.value.length //字的总数
+				jishu.innerHTML = n+'/'+len;
+				timer = setInterval(function(){
+					if(wenzi.value.length<= 0){
+						clearTimeout(timer);
+						alert('没有字了')
+						btn.isClick = false;
+						wenzi.disabled = false
+						return;
+					}
+					n++;
+					wenzi2.innerHTML += wenzi.value.charAt(0)//wenzi2.innerHTML += wenzi.value 的第一个字
+					wenzi.value = wenzi.value.substring(1)//截取wenzi.value里的下标为1的字符
+					jishu.innerHTML = n+'/'+len
+				},30)
+				
+			}
+		</script>
+	</body>
+</html>
